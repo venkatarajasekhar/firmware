@@ -55,6 +55,7 @@ enum SystemEvents {
     reset = 1<<11,                  // notifies that the system will now reset on return from this event.
     button_click = 1<<12,           // generated for every click in series - data is number of clicks in the lower 4 bits.
     button_final_click = 1<<13,     // generated for last click in series - data is the number of clicks in the lower 4 bits.
+    low_battery = 1<<14,            // generated when low battery condition is detected
 
     all_events = 0xFFFFFFFFFFFFFFFF
 };
