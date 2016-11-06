@@ -19,14 +19,16 @@
 
 #pragma once
 
+#include "protocol_defs.h"
+#include "events.h"
+#include "message_channel.h"
+
+#include <strings.h>
+
 namespace particle
 {
 namespace protocol
 {
-
-#include "protocol_defs.h"
-#include "events.h"
-#include "message_channel.h"
 
 class Publisher
 {
