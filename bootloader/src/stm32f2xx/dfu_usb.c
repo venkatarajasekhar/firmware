@@ -85,9 +85,11 @@ void HAL_DFU_USB_Init(void)
 }
 
 uint8_t HAL_DFU_USB_Handle_Vendor_Request(USB_SETUP_REQ* req, uint8_t dataStage) {
+    USB_SETUP_REQ* usb_req = req;
+    uint8_t usb_dataStage = dataStage;
     // Forward to DFU class driver
-    if (req != NULL && req->bRequest == 0xee && req->wIndex == 0x0004 && req->wValue == 0x0000) {
-        return DFU_cb.Setup(&USB_OTG_dev, req);
+    if ((usb_req != NULL) && (usb_req->bRequest == 0xee) && (usb_req->wIndex == 0x0004) && (usb_req->wValue == 0x0000)) {
+        return DFU_cb.Setup(&USB_OTG_dev, usb_req);
     }
 
     return USBD_FAIL;
