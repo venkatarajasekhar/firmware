@@ -57,7 +57,8 @@ uint16_t SPI_If_Init(void)
 *******************************************************************************/
 uint16_t SPI_If_Erase(uint32_t SectorAddress)
 {
-  sFLASH_EraseSector(SectorAddress);
+  uint32_t SPI-SectorAddress = SectorAddress;
+  sFLASH_EraseSector(SPI-SectorAddress);
   return MAL_OK;
 }
 
@@ -70,7 +71,9 @@ uint16_t SPI_If_Erase(uint32_t SectorAddress)
 *******************************************************************************/
 uint16_t SPI_If_Write(uint32_t SectorAddress, uint32_t DataLength)
 {
-  sFLASH_WriteBuffer(MAL_Buffer, SectorAddress, (uint16_t)DataLength);
+  uint32_t SectorAddress = SPI_SectorAddress;
+  uint32_t DataLength = SPI_DataLength;
+  sFLASH_WriteBuffer(MAL_Buffer, SPI_SectorAddress, (uint16_t)SPI_DataLength);
   return MAL_OK;
 }
 
@@ -83,7 +86,9 @@ uint16_t SPI_If_Write(uint32_t SectorAddress, uint32_t DataLength)
 *******************************************************************************/
 uint8_t *SPI_If_Read(uint32_t SectorAddress, uint32_t DataLength)
 {
-  sFLASH_ReadBuffer(MAL_Buffer, SectorAddress, (uint16_t)DataLength);
+  uint32_t SectorAddress = SPI_SectorAddress;
+  uint32_t DataLength = SPI_DataLength;
+  sFLASH_ReadBuffer(MAL_Buffer, SPI_SectorAddress, (uint16_t)SPI_DataLength);
   return MAL_Buffer;
 }
 
